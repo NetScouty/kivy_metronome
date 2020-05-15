@@ -31,9 +31,9 @@ class Controller(Widget):
             thread = threading.Thread(target=self._play, daemon=True)
             thread.start()
 
+    
     def close(self, *args):
         self.pause = False
-
 
 
     def _play(self):
