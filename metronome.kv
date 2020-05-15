@@ -1,0 +1,75 @@
+<Controller>
+    bpm_l: bpm_l
+    bpm_slider: bpm_slider
+    pause_b: pause_b
+    play_b: play_b
+
+    GridLayout:
+
+        size:root.width, root.height
+        cols:1
+        rows:4
+
+        GridLayout:
+            cols:1
+            Label:
+                text: 'Simple Metronome 1.0'
+        GridLayout:
+            cols:3
+            Button:
+                id: minus_b
+                text: '-'
+                font_size: 60
+                background_color: 0,0,0,0
+                on_press: root.changing_bpm('-')
+
+
+            Label:
+                id: bpm_l
+                text: '140'
+                font_size: 60
+                background_color: 0,0,0,0
+
+
+            Button:
+                id: plus_b
+                text: '+'
+                font_size: 60
+                background_color: 0,0,0,0
+                on_press: root.changing_bpm('+')
+
+
+
+        GridLayout:
+            cols:1
+            Slider:
+                id: bpm_slider
+                min: 30
+                max: 250
+                step: 1
+                value: 140
+                on_value: root.new_value(*args)
+
+
+        GridLayout:
+            cols: 2
+            Button
+                id: play_b
+                size_hint: .3, .4
+                text: 'start'
+                font_size: 30
+                background_color: 0,0,0,0
+                on_press: root.play()
+
+
+            Button
+                id: pause_b
+                size_hint: .3, .4
+                text: 'stop'
+                font_size: 30
+                background_color: 0,0,0,0
+                on_press: root.stop()
+
+
+
+
